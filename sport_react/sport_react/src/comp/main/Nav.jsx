@@ -1,25 +1,35 @@
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 import "../../css/main/nav.css";
 import MainLogo from "../../image/logo.png";
 
 const Nav = () => {
   return (
+    // <BrowserRouter>
     <nav id="main_nav">
       <img src={MainLogo}></img>
       <ul>
-        <li>Search</li>
-        <li>Map</li>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+        <li>
+          <Link to="/map" />
+          Map
+        </li>
         <li>
           instagram <i class="fab fa-instagram fa-lg"></i>
         </li>
         <li>
+          <Link to="/login" />
           Login <i class="fas fa-user-circle fa-lg"></i>
         </li>
         <li>
+          <Link to="/join" />
           Join <i class="fas fa-pencil-alt fa-lg"></i>
         </li>
       </ul>
     </nav>
+    // </BrowserRouter>
   );
 };
 

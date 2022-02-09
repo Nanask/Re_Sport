@@ -3,36 +3,21 @@ import "../../css/search/search.css";
 
 const Search = () => {
   return (
-    <body>
-      <nav id="main_nav">
-        <img src="../project_my/image/로고2.png" />
-        <ul>
-          <li>Search</li>
-          <li>Map</li>
-          <li>
-            instagram <i class="fab fa-instagram fa-lg"></i>
-          </li>
-          <li>
-            Login <i class="fas fa-user-circle fa-lg"></i>
-          </li>
-          <li>
-            Join <i class="fas fa-pencil-alt fa-lg"></i>
-          </li>
-        </ul>
-      </nav>
+    // <div>Search</div>
+    <div>
       <h1>광주광역시 체육시설 찾아보기</h1>
-      <table class="search">
+      <table className="search">
         {/* <!-- <caption>광주광역시 체육시설 찾아보기</caption> 표 제목 붙이기 --> */}
-        <tr class="search">
-          <th class="search">이용료</th>
+        <tr className="search">
+          <th className="search">이용료</th>
           <td>
             <input id="ra" type="radio" name="ra" value="무료" checked /> 무료
             <input id="ra" type="radio" name="ra" value="유료" /> 유료
             <input id="ra" type="radio" name="ra" value="유/무료" /> 유/무료
           </td>
         </tr>
-        <tr class="search">
-          <th class="search">지역(구)</th>
+        <tr className="search">
+          <th className="search">지역(구)</th>
           <td>
             <input id="ch" type="checkbox" name="ch" value="동구" /> 동구
             <input id="ch" type="checkbox" name="ch" value="서구" /> 서구
@@ -43,23 +28,23 @@ const Search = () => {
             전체
           </td>
         </tr>
-        <tr class="search">
-          <th class="search">지역(동)</th>
+        <tr className="search">
+          <th className="search">지역(동)</th>
           <td id="t3">
-            <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="dong" />
+            <input type="text" name="dong" />
           </td>
         </tr>
-        <tr class="search">
-          <th class="search">검색어</th>
+        <tr className="search">
+          <th className="search">검색어</th>
           <td id="t4">
-            <input type="text" size="20" style="padding: 10px; border: 1px solid #ddd" name="search" />
+            <input type="text" size="20" name="search" />
           </td>
         </tr>
-        <tr class="search">
+        <tr className="search">
           {/* <!-- 드롭다운 사용하기 --> */}
-          <th class="search">종목</th>
+          <th className="search">종목</th>
           <td>
-            <select class="sports" name="input" size="1" style="width: 230px; border: 1px solid #ddd">
+            <select className="sports" name="input">
               <option value="1">--- 종목 ---</option>
               <option value="2">배드민턴</option>
               <option value="3">3</option>
@@ -67,16 +52,15 @@ const Search = () => {
             </select>
           </td>
         </tr>
-        <tr class="search">
-          <td colspan="2" class="btn_src" style="text-align: right">
+        <tr className="search">
+          <td class="btn_src">
             <button id="btn_search" type="button">
               검색
             </button>
           </td>
         </tr>
       </table>
-
-      <table class="list">
+      <table className="list">
         <tr class="list first">
           <th>번호</th>
           <th>시설 이름</th>
@@ -120,7 +104,7 @@ const Search = () => {
           <th>광주광역시 서구 상무시민공원 내 위치</th>
         </tr>
       </table>
-    </body>
+    </div>
   );
 };
 
