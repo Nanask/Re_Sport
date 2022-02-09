@@ -7,25 +7,25 @@ const Nav = () => {
   return (
     // <BrowserRouter>
     <nav id="main_nav">
-      <img src={MainLogo}></img>
+      <Link to="/">
+        <img src={MainLogo}></img>
+      </Link>
       <ul>
         <li>
           <Link to="/search">Search</Link>
         </li>
         <li>
-          <Link to="/map" />
-          Map
+          <Link to="/map">Map</Link>
         </li>
         <li>
-          instagram <i class="fab fa-instagram fa-lg"></i>
+          <Link to="/qna">qna</Link>
         </li>
         <li>
-          <Link to="/login" />
-          Login <i class="fas fa-user-circle fa-lg"></i>
+          <Link to="/login">Login </Link> <i class="fas fa-user-circle fa-lg"></i>
         </li>
         <li>
-          <Link to="/join" />
-          Join <i class="fas fa-pencil-alt fa-lg"></i>
+          <Link to="/join">Join</Link>
+          <i class="fas fa-pencil-alt fa-lg"></i>
         </li>
       </ul>
     </nav>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Link, Route, useHistory } from "react-router-dom";
 import "../../css/main/main.css";
+import "../../css/main/layout.css";
 import Search from "./../search/Search";
 import { useNavigate } from "react-router-dom";
 

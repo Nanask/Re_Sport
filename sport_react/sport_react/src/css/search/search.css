@@ -23,7 +23,7 @@ th.search {
   background: #dedcee;
 }
 
-td {
+.search td {
   width: 350px;
   padding-right: 40px;
   vertical-align: top;
