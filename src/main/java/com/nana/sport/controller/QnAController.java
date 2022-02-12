@@ -1,5 +1,7 @@
 package com.nana.sport.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nana.sport.model.QnAVO;
 import com.nana.sport.service.QnAService;
 import org.springframework.stereotype.Controller;
@@ -23,8 +25,18 @@ public class QnAController {
     @RequestMapping(value = "/list" , method = RequestMethod.GET)
     public String main(){
 
-        List<QnAVO> qList = qnaService.selectAll();
+        List<QnAVO> qnaList = qnaService.selectAll();
 
-        return qList.toString();
+        ObjectMapper objMapper = new ObjectMapper();
+        String jsonString = null;
+        try {
+            jsonString = objMapper.writeValueAsString(qnaList);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            System.out.println("Json 오류");
+        }
+
+        return jsonString;
+//        return qList.toString();
     }
 }
