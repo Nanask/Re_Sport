@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nana.sport.model.QnAVO;
 import com.nana.sport.service.QnAService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,5 +39,20 @@ public class QnAController {
 
         return jsonString;
 //        return qList.toString();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/write", method = RequestMethod.POST)
+    public String write(@RequestBody QnAVO qnAVO) {
+        if (qnAVO != null) {
+            System.out.println(qnAVO);
+            int result = qnaService.insert(qnAVO);
+//            System.out.println("result : "+ result);
+            if (result != 1) {
+                return "SQL 오류 !";
+            }
+            return "OK";
+        }
+        return "FAIL";
     }
 }

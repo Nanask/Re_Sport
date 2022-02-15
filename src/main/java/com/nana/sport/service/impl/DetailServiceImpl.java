@@ -3,18 +3,17 @@ package com.nana.sport.service.impl;
 import com.nana.sport.dao.AllListDao;
 import com.nana.sport.model.AllListVO;
 import com.nana.sport.service.DetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DetailServiceImpl implements DetailService {
 
     private final AllListDao allListDao;
 
-    public DetailServiceImpl(AllListDao allListDao) {
-        this.allListDao = allListDao;
-    }
 
 
     @Override
@@ -23,7 +22,7 @@ public class DetailServiceImpl implements DetailService {
         List<AllListVO> alList = allListDao.selectAll();
         System.out.println("alList : "+ alList);
 
-        return null;
+        return alList;
     }
 
     @Override

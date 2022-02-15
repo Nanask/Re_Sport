@@ -6,6 +6,8 @@ import com.nana.sport.service.QnAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,7 +32,19 @@ public class QnAServiceImpl implements QnAService {
 
     @Override
     public int insert(QnAVO qnAVO) {
-        return 0;
+
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+
+        String curDate = sd.format(date);
+
+        qnAVO.setQna_date(curDate);
+
+        int result = qnaDao.insert(qnAVO);
+
+        System.out.println("QnAVO : " + qnAVO);
+        System.out.println("write result: " + result);
+        return result;
     }
 
     @Override

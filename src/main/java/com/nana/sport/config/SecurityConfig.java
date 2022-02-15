@@ -12,6 +12,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+        http.cors().and();
         http.authorizeRequests()
                 .mvcMatchers("/**")
                 .anonymous().mvcMatchers("/admin").fullyAuthenticated();

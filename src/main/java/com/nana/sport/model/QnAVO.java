@@ -16,5 +16,5 @@ public class QnAVO {
     private String qna_text;// varchar(3000) NOT NULL,
     private String qna_email;// varchar(50) NOT NULL,
     private String qna_date;// varchar(30) NOT NULL,
-    private String qna_count;// int DEFAULT '0',
+    private Integer qna_count;// int DEFAULT '0',
 }
