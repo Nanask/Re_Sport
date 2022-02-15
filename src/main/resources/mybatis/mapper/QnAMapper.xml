@@ -5,7 +5,7 @@
         SELECT *
         FROM tbl_qna;
     </select>
-    <select id="findById" resultType="BoardVO">
+    <select id="findById" resultType="QnAVO">
         SELECT *
         FROM tbl_qna WHERE qna_seq = #{qna_seq}
     </select>

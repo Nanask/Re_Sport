@@ -27,6 +27,9 @@ public class QnAServiceImpl implements QnAService {
 
     @Override
     public QnAVO findById(Long aLong) {
+
+        QnAVO qnaVO = qnaDao.findById(aLong);
+        System.out.println("qnaVO: " + qnaVO);
         return null;
     }
 
@@ -42,8 +45,8 @@ public class QnAServiceImpl implements QnAService {
 
         int result = qnaDao.insert(qnAVO);
 
-        System.out.println("QnAVO : " + qnAVO);
-        System.out.println("write result: " + result);
+//        System.out.println("QnAVO : " + qnAVO);
+//        System.out.println("write result: " + result);
         return result;
     }
 

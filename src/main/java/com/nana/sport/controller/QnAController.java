@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nana.sport.model.QnAVO;
 import com.nana.sport.service.QnAService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,5 +51,11 @@ public class QnAController {
             return "OK";
         }
         return "FAIL";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/update/{q_seq}", method = RequestMethod.GET)
+    public String update(@PathVariable("q_seq") Long q_seq) {
+        return "update";
     }
 }
