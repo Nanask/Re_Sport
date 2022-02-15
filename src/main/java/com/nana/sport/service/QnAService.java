@@ -5,7 +5,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface QnAService {
+public interface QnAService extends GenericService<QnAVO, Long>{
 
-    public List<QnAVO> selectAll();
+//    public List<QnAVO> selectAll();
+//    public QnAVO findById();
+//    public int insert(QnAVO);
+//    public int update();
+//    public int delete();
 }

@@ -18,8 +18,28 @@ public class QnAServiceImpl implements QnAService {
     public List<QnAVO> selectAll() {
 
         List<QnAVO> qList= qnaDao.selectAll();
-        System.out.println("qList :" + qList);
+//        System.out.println("qList :" + qList);
 
         return qList;
+    }
+
+    @Override
+    public QnAVO findById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public int insert(QnAVO qnAVO) {
+        return 0;
+    }
+
+    @Override
+    public int update(QnAVO qnAVO) {
+        return 0;
+    }
+
+    @Override
+    public int delete(Long aLong) {
+        return 0;
     }
 }

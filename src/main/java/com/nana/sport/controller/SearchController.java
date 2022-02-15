@@ -2,8 +2,9 @@ package com.nana.sport.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nana.sport.model.QnAVO;
-import com.nana.sport.service.QnAService;
+import com.nana.sport.model.AllListVO;
+import com.nana.sport.service.DetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,31 +13,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/qna")
-public class QnAController {
+@RequestMapping("/search")
+@RequiredArgsConstructor
+public class SearchController {
 
-    private QnAService qnaService;
-
-    public QnAController(QnAService qnaService) {
-        this.qnaService = qnaService;
-    }
+    private final DetailService detailService;
 
     @ResponseBody
-    @RequestMapping(value = "/list" , method = RequestMethod.GET)
-    public String main(){
-
-        List<QnAVO> qnaList = qnaService.selectAll();
-
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main() {
+        List<AllListVO> alList = detailService.selectAll();
         ObjectMapper objMapper = new ObjectMapper();
         String jsonString = null;
         try {
-            jsonString = objMapper.writeValueAsString(qnaList);
+            jsonString = objMapper.writeValueAsString(alList);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             System.out.println("Json 오류");
         }
-
         return jsonString;
-//        return qList.toString();
     }
 }

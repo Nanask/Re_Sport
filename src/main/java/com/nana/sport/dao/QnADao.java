@@ -14,7 +14,7 @@ import java.util.List;
 //}
 
 @Mapper
-public interface QnADao {
-    public List<QnAVO> selectAll();
+public interface QnADao extends GenericDao<QnAVO, Long>{
+//    public List<QnAVO> selectAll();
 
 }
