@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value = "/qna")
 public class QnAController {
 
@@ -20,8 +20,8 @@ public class QnAController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/list" , method = RequestMethod.GET)
-    public String main(){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main() {
 
         List<QnAVO> qnaList = qnaService.selectAll();
 
@@ -39,7 +39,7 @@ public class QnAController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/write", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public String write(@RequestBody QnAVO qnAVO) {
         if (qnAVO != null) {
             System.out.println(qnAVO);
@@ -54,8 +54,52 @@ public class QnAController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/update/{q_seq}", method = RequestMethod.GET)
-    public String update(@PathVariable("q_seq") Long q_seq) {
-        return "update";
+    @RequestMapping(value = "/{qna_seq}", method = RequestMethod.GET)
+    public String findById(@PathVariable("qna_seq") Long qna_seq, QnAVO qnAVO) {
+
+//        if(qna_seq != null) {
+//            System.out.println("qna_seq: " + qna_seq);
+        qnAVO = qnaService.findById(qna_seq);
+
+        ObjectMapper objMapper = new ObjectMapper();
+        String jsonString = null;
+        try {
+            jsonString = objMapper.writeValueAsString(qnAVO);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            System.out.println("Json 오류");
+        }
+        return jsonString;
+
+//        }
+
+//        return "FAIL";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/{qna_seq}", method = RequestMethod.PUT)
+    public String update(@RequestBody QnAVO qnAVO) {
+        if (qnAVO != null) {
+            System.out.println("qnaVO: " + qnAVO);
+            int result = qnaService.update(qnAVO);
+            
+            if (result != 1) {
+                return "sql 등록안됨";
+            }else {
+                ObjectMapper objMapper = new ObjectMapper();
+                String jsonString = null;
+                try {
+                    jsonString = objMapper.writeValueAsString(qnAVO);
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                    System.out.println("Json 오류");
+                }
+                return jsonString;
+
+            }
+
+        }
+        return "FAIL";
+    }
+
 }

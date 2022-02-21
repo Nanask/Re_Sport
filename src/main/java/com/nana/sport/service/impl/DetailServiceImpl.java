@@ -20,7 +20,7 @@ public class DetailServiceImpl implements DetailService {
     public List<AllListVO> selectAll() {
 
         List<AllListVO> alList = allListDao.selectAll();
-        System.out.println("alList : "+ alList);
+//        System.out.println("alList : "+ alList);
 
         return alList;
     }

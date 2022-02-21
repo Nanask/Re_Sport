@@ -29,8 +29,8 @@ public class QnAServiceImpl implements QnAService {
     public QnAVO findById(Long aLong) {
 
         QnAVO qnaVO = qnaDao.findById(aLong);
-        System.out.println("qnaVO: " + qnaVO);
-        return null;
+//        System.out.println("qnaVO: " + qnaVO);
+        return qnaVO;
     }
 
     @Override
@@ -52,7 +52,12 @@ public class QnAServiceImpl implements QnAService {
 
     @Override
     public int update(QnAVO qnAVO) {
-        return 0;
+        System.out.println("qnaVO: "+ qnAVO);
+        int result = 0;
+        if(qnAVO != null) {
+            result = qnaDao.update(qnAVO);
+        }
+        return result;
     }
 
     @Override
