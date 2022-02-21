@@ -52,7 +52,7 @@ public class QnAServiceImpl implements QnAService {
 
     @Override
     public int update(QnAVO qnAVO) {
-        System.out.println("qnaVO: "+ qnAVO);
+//        System.out.println("qnaVO: "+ qnAVO);
         int result = 0;
         if(qnAVO != null) {
             result = qnaDao.update(qnAVO);
@@ -62,6 +62,9 @@ public class QnAServiceImpl implements QnAService {
 
     @Override
     public int delete(Long aLong) {
-        return 0;
+
+        System.out.println("aLong: " + aLong);
+        int result = qnaDao.delete(aLong);
+        return result;
     }
 }

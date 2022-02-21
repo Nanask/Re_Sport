@@ -41,7 +41,7 @@ public class DetailServiceImpl implements DetailService {
     }
 
     @Override
-    public int delete(AllListVO allListVO) {
+    public int delete(Long allListVO) {
         return 0;
     }
 }

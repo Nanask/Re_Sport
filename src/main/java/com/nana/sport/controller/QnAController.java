@@ -42,7 +42,7 @@ public class QnAController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String write(@RequestBody QnAVO qnAVO) {
         if (qnAVO != null) {
-            System.out.println(qnAVO);
+//            System.out.println(qnAVO);
             int result = qnaService.insert(qnAVO);
 //            System.out.println("result : "+ result);
             if (result != 1) {
@@ -80,9 +80,9 @@ public class QnAController {
     @RequestMapping(value = "/{qna_seq}", method = RequestMethod.PUT)
     public String update(@RequestBody QnAVO qnAVO) {
         if (qnAVO != null) {
-            System.out.println("qnaVO: " + qnAVO);
+//            System.out.println("qnaVO: " + qnAVO);
             int result = qnaService.update(qnAVO);
-            
+
             if (result != 1) {
                 return "sql 등록안됨";
             }else {
@@ -100,6 +100,17 @@ public class QnAController {
 
         }
         return "FAIL";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/{qna_seq}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("qna_seq") Long qna_seq) {
+        int result = qnaService.delete(qna_seq);
+
+        if(result != 1) {
+            return "sql 삭제되지 않음";
+        }
+        return "OK";
     }
 
 }

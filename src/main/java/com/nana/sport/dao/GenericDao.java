@@ -1,7 +1,5 @@
 package com.nana.sport.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
 public interface GenericDao<VO,PK> {
@@ -10,5 +8,5 @@ public interface GenericDao<VO,PK> {
     public VO findById(PK pk);
     public int insert(VO vo);
     public int update(VO vo);
-    public int delete(VO vo);
+    public int delete(Long vo);
 }
