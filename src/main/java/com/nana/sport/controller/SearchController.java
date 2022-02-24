@@ -33,4 +33,10 @@ public class SearchController {
         }
         return jsonString;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String search() {
+        return "search";
+    }
 }

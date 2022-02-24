@@ -4,5 +4,13 @@
     <select id="selectAll" resultType="AllListVO">
         SELECT * FROM tbl_all_list;
     </select>
+    <select id="searchResult" resultType="Long">
+        SELECT * FROM tbl_all_list
+        WHERE al_seq = #{al_seq}
+          and al_sport like CONCAT('%',#{al_sport},'%')
+          and al_free like CONCAT('%',#{al_free},'%')
+          and al_addr like CONCAT('%',#{al_addr},'%')
+        ORDER BY al_seq
+    </select>
 
 </mapper>

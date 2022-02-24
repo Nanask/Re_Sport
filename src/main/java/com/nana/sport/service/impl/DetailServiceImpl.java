@@ -44,4 +44,9 @@ public class DetailServiceImpl implements DetailService {
     public int delete(Long allListVO) {
         return 0;
     }
+
+    @Override
+    public List<AllListVO> searchResult() {
+        return null;
+    }
 }

@@ -3,7 +3,7 @@
 <mapper namespace="com.nana.sport.dao.QnADao">
     <select id="selectAll" resultType="QnAVO">
         SELECT *
-        FROM tbl_qna;
+        FROM tbl_qna ORDER BY qna_date DESC;
     </select>
     <select id="findById" resultType="QnAVO">
         SELECT *
