@@ -4,7 +4,7 @@
     <select id="selectAll" resultType="AllListVO">
         SELECT * FROM tbl_all_list;
     </select>
-    <select id="searchResult" resultType="Long">
+    <select id="searchResult" resultType="String">
         SELECT * FROM tbl_all_list
         WHERE al_seq = #{al_seq}
           and al_sport like CONCAT('%',#{al_sport},'%')

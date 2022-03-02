@@ -46,7 +46,8 @@ public class DetailServiceImpl implements DetailService {
     }
 
     @Override
-    public List<AllListVO> searchResult() {
+    public List<AllListVO> searchResult(String al_free, String al_addr) {
+//        System.out.println("String al_free, String al_addr : " + al_free, al_addr);
         return null;
     }
 }

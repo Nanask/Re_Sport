@@ -6,6 +6,7 @@ import com.nana.sport.model.AllListVO;
 import com.nana.sport.service.DetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,8 +36,11 @@ public class SearchController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String search() {
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String search(@RequestBody String al_addr, String al_free ) {
+
+        System.out.println("al_addr : " + al_addr);
+        System.out.println("al_free : " + al_free);
         return "search";
     }
 }

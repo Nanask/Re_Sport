@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface DetailService extends GenericDao<AllListVO, Long> {
 
-    public List<AllListVO> searchResult();
+    public List<AllListVO> searchResult(String al_free, String al_addr);
 }
